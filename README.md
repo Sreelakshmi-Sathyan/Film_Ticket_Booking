@@ -1,11 +1,3 @@
-# Movie-seat-project
-Spring boot, Movie seat selection mechanism, Spring Data Jpa, Thymeleaf,
-
-just clone the repo
-$git clone url..
-
-open in eclipse or intellij
-
-Please update the repo and change Jpa configuration acording to your system before run
-And enjoy repo
+Developed an online shopping project using JSP and Hibernate, featuring modules such as user login, streamlined cart management
+(add to cart and view cart), efficient order processing, and comprehensive order and delivery details.
 
