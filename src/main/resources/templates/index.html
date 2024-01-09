@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Home</title>
+<link rel="stylesheet" href="#" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" href="#" th:href="@{/css/all.css}" />
+<link rel="stylesheet" href="#" th:href="@{/css/index.css}" />
+</head>
+<body>
+
+	<div class="container base">
+		<div class="row base-row">
+			<div class="col-3 menu">
+			<div class="logo mb-5 text-center text-light bg-dark pt-1 pb-1">
+			<h4>Inamkes Gold Theatre</h4>
+			</div>
+				<ul class="list">
+					<li><a th:classappend="${menu == 'home'} ? 'text-dark' : ' '" th:href="@{/}"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a></li>
+					<li th:if="${session.user == nulll}"><a th:href="@{/register}"><i class="fas fa-user-plus"></i>&nbsp;&nbsp;Register</a></li>
+					<li th:if="${session.user == nulll}"><a th:href="@{/loginForm}"><i class="fas fa-users"></i>&nbsp;&nbsp;Login</a></li>
+					<li th:if="${session.user != nulll}"><a th:href="@{/setting}"><i class="fas fa-cogs"></i>&nbsp;&nbsp;Setting</a></li>
+					<li th:if="${session.user != nulll and session.user.bid==1}"><a
+						th:href="@{/all-customers-records}"><i class="fas fa-users"></i>&nbsp;&nbsp;All
+							Users</a></li>
+					<li><a th:if="${session.user != nulll and session.user.bid==1}" th:href="@{/addMovie}"><i class="fas fa-phone-square-alt"></i>&nbsp;&nbsp;Add movie</a></li>
+					<li th:if="${session.user != nulll}"><a th:href="@{/order-history}"><i class="fas fa-history"></i>&nbsp;&nbsp;Orders</a></li>
+					<li><a th:classappend="${menu == 'about'} ? 'text-dark' : ' '" th:href="@{/about}"><i class="fas fa-address-card"></i>&nbsp;&nbsp;About
+							us</a></li>
+					<li><a th:classappend="${menu == 'contactus'} ? 'text-dark' : ' '" th:href="@{/contactus}"><i class="fas fa-phone-square-alt"></i>&nbsp;&nbsp;Contact
+							us</a></li>
+					<li th:if="${session.user != nulll}"><a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a></li>
+				</ul>
+			</div>
+			<div class="col-9 before_login_home">
+				<div class="before_head">
+					<form action="">
+						<input type="text" placeholder="search for movies..," />
+						<button>
+							<i class="fa fa-search"></i>
+						</button>
+
+					</form>
+
+
+				</div>
+				<div class="before_main_section">
+					<div class="card-section" th:each="movies : ${movieList}">
+						<form th:action="@{/booking}" method="get">
+							<img th:src="@{${'images/'+movies.image}}" height="280px" alt="" />
+							<div class="card_body mt-1">
+								<span th:text="${movies.movieName}"></span>
+								<button class="btn btn-primary" type="submit" name="movieName" th:value="${movies.movieName}">Book now</button>
+							</div>
+						</form>
+					</div>
+					
+					
+				</div>
+
+
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

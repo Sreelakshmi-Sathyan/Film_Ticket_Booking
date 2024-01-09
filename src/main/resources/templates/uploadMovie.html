@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Admin</title>
+<link rel="stylesheet" href="#" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" href="#" th:href="@{/css/all.css}" />
+<link rel="stylesheet" href="#" th:href="@{/css/index.css}" />
+</head>
+<body>
+
+	<div class="container base">
+		<div class="row base-row">
+			<div class="col-3 menu">
+			<div class="logo mb-5 text-center text-light bg-dark pt-1 pb-1">
+			<h4>Inamkes Gold Theatre</h4>
+			</div>
+				<ul class="list">
+					<li><a th:href="@{/}"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a></li>
+					<li><a href="/about"><i class="fas fa-address-card"></i>&nbsp;&nbsp;About
+							us</a></li>
+					<li><a href="/contactus"><i class="fas fa-phone-square-alt"></i>&nbsp;&nbsp;Contact
+							us</a></li>
+				</ul>
+			</div>
+			<div class="col-9 login-form">
+				<div class="login">
+					<form action="upload" method="post">
+						<div>
+							<span th:text="${failed}"></span>
+							<span th:text="${success}"></span>
+						</div>
+						<div class="login-head">
+						<h3>Welcome Admin</h3>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Movie Name</label> <input
+								type="text" class="form-control" id="movie_name"
+								aria-describedby="emailHelp" placeholder="Enter Movie name here"
+								name="movie_name">
+
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Movie Description</label> <input
+								type="text" class="form-control" id="movie_desc"
+								placeholder="Describe about movie" name="movie_desc">
+						</div>
+						<!--<div class="form-group">
+							<label for="exampleInputPassword1">Upload Thumbnail</label> <input
+								type="file" class="form-control" id="movie_image"
+								placeholder="choose file" name="movie_image" accept="image/jpeg">
+						</div>-->
+						<button type="submit" class="btn btn-primary btn2">Save</button>
+					</form>
+					
+				</div>
+
+
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
